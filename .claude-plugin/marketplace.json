@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "screenbrowser",
+  "description": "Screen Browser: tutorial videos generated from your app's source code.",
+  "owner": {
+    "name": "Screen Browser",
+    "url": "https://screenbrowser.com"
+  },
+  "plugins": [
+    {
+      "name": "screenbrowser",
+      "description": "Skill + MCP server to produce narrated tutorial videos of your web app.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

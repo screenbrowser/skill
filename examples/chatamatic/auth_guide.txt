@@ -1,0 +1,8 @@
+Go to https://app.chatamatic.io/login
+Type {USERNAME} into selector input[name="email"]
+Type {PASSWORD} into selector input[name="password"]
+Click selector button[type="submit"]
+Confirm text "Dashboard" is visible
+Click "Accept all"
+Wait 1 second
+After login, confirm the sidebar link a[href="/campaigns"] exists
