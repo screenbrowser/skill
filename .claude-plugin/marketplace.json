@@ -1,17 +1,21 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "screenbrowser",
-  "description": "Screen Browser: tutorial videos generated from your app's source code.",
+  "description": "Screen recordings with AI voiceover, from your code.",
   "owner": {
     "name": "Screen Browser",
+    "email": "hello@screenbrowser.com",
     "url": "https://screenbrowser.com"
   },
   "plugins": [
     {
       "name": "screenbrowser",
-      "description": "Skill + MCP server to produce narrated tutorial videos of your web app.",
+      "displayName": "Screen Browser",
+      "description": "Record narrated screen videos of your web app — tutorials, demos and walkthroughs. The skill writes the guide from your source code; the MCP server records it and returns the video.",
       "source": "./",
-      "category": "productivity"
+      "category": "productivity",
+      "keywords": ["video", "audio", "screen recording", "tutorial", "walkthrough", "product demo", "voiceover", "documentation", "mcp"],
+      "tags": ["video", "screen recording", "developer-tools"]
     }
   ]
 }

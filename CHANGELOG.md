@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 — 2026-09-15
+
+- Listing metadata for the plugin marketplace: `displayName` ("Screen Browser"), a `mcpServers`
+  declaration in `plugin.json`, contact email on author/owner, and discovery keywords/tags led by
+  video, audio and screen recording. Sharper descriptions and a tagline — "Screen recordings with
+  AI voiceover, from your code." No behaviour change.
+
 ## 1.1.0 — 2026-09-09
 
 - Mobile web: `create_project`, `update_project` and `start_run` take `device` (a current iPhone,

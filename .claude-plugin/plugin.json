@@ -1,13 +1,16 @@
 {
   "name": "screenbrowser",
-  "description": "Turn a feature of your web app into a narrated tutorial video. The skill reads your source code to write the recording guides; the MCP server runs the recording on Screen Browser and hands back the video.",
-  "version": "1.1.0",
+  "displayName": "Screen Browser",
+  "description": "Record narrated screen videos of your web app — tutorials, demos and walkthroughs, straight from your code. The skill reads your source to write the recording guides; the MCP server records it on Screen Browser and hands back the video.",
+  "version": "1.1.1",
   "author": {
     "name": "Screen Browser",
+    "email": "hello@screenbrowser.com",
     "url": "https://screenbrowser.com"
   },
   "homepage": "https://screenbrowser.com",
   "repository": "https://github.com/screenbrowser/skill",
   "license": "MIT",
-  "keywords": ["tutorial", "video", "screen-recording", "documentation", "product-demo", "mcp"]
+  "keywords": ["video", "audio", "screen recording", "tutorial", "walkthrough", "product demo", "voiceover", "documentation", "mcp"],
+  "mcpServers": "./.mcp.json"
 }
