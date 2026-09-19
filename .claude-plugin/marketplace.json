@@ -4,7 +4,6 @@
   "description": "Screen recordings with AI voiceover, from your code.",
   "owner": {
     "name": "Screen Browser",
-    "email": "hello@screenbrowser.com",
     "url": "https://screenbrowser.com"
   },
   "plugins": [

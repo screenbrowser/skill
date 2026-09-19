@@ -141,10 +141,17 @@ Ids and `name=` attributes are allowed when a step needs precision; class names 
 tool are refused. The full reference, including the optional effect directives, is in
 [`skills/screenbrowser/references/guide-syntax.md`](skills/screenbrowser/references/guide-syntax.md).
 
+## Documentation index for AI agents
+
+The skill carries everything an agent needs to write a guide and run a recording. For anything else —
+prerequisites, costs, limitations, the API — https://screenbrowser.com/llms.txt is a Markdown index
+of the public documentation, and https://screenbrowser.com/docs/agents/ is the reference for this
+integration.
+
 ## Support
 
 Issues and ideas about the skill are welcome in this repository. Anything about your account or a
-particular recording: hello@screenbrowser.com.
+particular recording: use the contact form at https://screenbrowser.com/contact/.
 
 ## License
 

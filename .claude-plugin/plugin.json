@@ -2,10 +2,9 @@
   "name": "screenbrowser",
   "displayName": "Screen Browser",
   "description": "Record narrated screen videos of your web app — tutorials, demos and walkthroughs, straight from your code. The skill reads your source to write the recording guides; the MCP server records it on Screen Browser and hands back the video.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": {
     "name": "Screen Browser",
-    "email": "hello@screenbrowser.com",
     "url": "https://screenbrowser.com"
   },
   "homepage": "https://screenbrowser.com",

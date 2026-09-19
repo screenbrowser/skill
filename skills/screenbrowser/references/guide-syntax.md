@@ -1,7 +1,7 @@
 # Screen Browser guide syntax
 
 A project has two guides. Both are plain text, one step per line, written the way a colleague would
-explain the flow over your shoulder. Screen Browser compiles each line into a browser action, writes the
+explain the flow over your shoulder. Screen Browser turns each line into a browser action, writes the
 narration and the effects from the quoted sentences, and resolves each step against the live page — the
 precise forms below are there when a step needs them, not the way guides are normally written.
 
@@ -50,8 +50,8 @@ you cannot inspect):
 Rules:
 - One action per line. Prefer the human forms above; use `selector` for ids, `name=` attributes and
   `data-testid`. **Never** use class names a build tool generated (`.css-1x9f2k`, `.sc-bdVaJa`,
-  `_1a2b3c`): they differ between the dev server and production and change on every deploy — the
-  compiler refuses them.
+  `_1a2b3c`): they differ between the dev server and production and change on every deploy — they
+  are rejected.
 - After every navigation or form submit, add a `Confirm …` line so a broken flow stops early.
 - Never type a real password or token literally; always `{VARIABLE}`.
 - Start every guide with `Go to https://…`.
