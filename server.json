@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.screenbrowser/screenbrowser",
+  "title": "Screen Browser",
+  "description": "Narrated demo and tutorial videos of your web app, from a guide or your coding agent. Creates the project, validates the guide, records and returns the MP4.",
+  "version": "1.2.0",
+  "websiteUrl": "https://screenbrowser.com/for-agents/",
+  "repository": {
+    "url": "https://github.com/screenbrowser/skill",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.screenbrowser.com"
+    }
+  ]
+}

@@ -49,15 +49,19 @@ the plugin or register the server; if they are present but every call is refused
    password field, press the sign-in button, then `Confirm` something only a signed-in user sees.
 4. **Write the main guide** for the feature, in the words a colleague would use over the shoulder:
    10–25 steps, one action per line, each naming the thing as it appears on screen — the button's
-   text, the field's label, the menu item's words. Add a short line in quotes every 1–3 steps saying
-   what the viewer is achieving; Screen Browser turns those into the narration and the effects.
+   text, the field's label, the menu item's words. Put a `[CAPTION "…"]` line before every action
+   the viewer should hear about, in the words a narrator would say: the captions are the narration,
+   spoken verbatim, so a click without one plays in silence and reads as a cut. One short sentence
+   each; a caption may cover the two or three actions that follow it.
    Put a `Confirm …` line after every navigation or save so a broken flow stops early. For a
    phone or tablet run, never write hover steps (a touch screen has no pointer; the recorder
    skips them) and name mobile navigation as the user sees it ("the menu button"); keep zoom
    factors at 1.4 or below, the screen is small. If a step
    creates data, name it so reruns do not collide, or delete it at the end of the guide.
 5. **Validate.** `validate_guide` (kind `auth`, then `main`, with `project_id`) and fix every problem
-   until `passed` is true. Show both guides to the user before uploading.
+   until `passed` is true. The check is free and walks the guide against the live app without
+   recording; run it after every edit, not only the first time. Show both guides to the user before
+   uploading.
 6. **Upload and run.** `put_guide` auth, `put_guide` main (give it a name), `start_run` (with
    `device`, `frame`, `backdrop` for a phone or tablet version), then `get_run`
    every 15–30 seconds until `is_terminal`. Runs take 2–6 minutes; do not start a second run of the
@@ -65,8 +69,14 @@ the plugin or register the server; if they are present but every call is refused
    what the page really calls things: `get_run` lists what was resolved and what was learned per step.
    If a run fails with "Login gate failed", the gate was wrong: fix it with `update_project` and start
    again.
-7. **Deliver.** Give the user `video_url` (signed, valid 15 minutes; call `get_run` again for a fresh
-   link) and the credits charged. `get_run`'s `artifacts` also carry the exports: `gif` (animated GIF of the
+7. **Review, then deliver.** Before handing the video over, look at it the way the user will: play it,
+   or read frames at the moment of every effect the guide asks for. Check that the ring is on the
+   thing about to be clicked before the click, that the words name what is on screen at that moment,
+   that no card or tooltip covers a field being typed into, and that each chapter card's title
+   matches what follows it. A miss is a guide edit and a rerun (`put_guide`, `start_run`), which
+   costs the same as the first take. Then give the user `video_url` (signed, valid 15 minutes; call
+   `get_run` again for a fresh link) and the credits charged, and ask what to change: every note in
+   plain words is one edit to the guide and one more run. `get_run`'s `artifacts` also carry the exports: `gif` (animated GIF of the
    video), `chapter_gifs` (zip, one per chapter), `subtitles_vtt` / `subtitles_srt`, and `chapters` (YouTube's
    chapter list) — hand over the ones the user asked for, or all of them for an upload elsewhere. On failure read `error.hints`, fix the guide, and retry once. Typical
    causes: the login gate never appeared, a host missing from `allow_hosts`, the demo user hit a
@@ -94,14 +104,32 @@ the plugin or register the server; if they are present but every call is refused
 
 ## Effects (optional)
 
-Screen Browser adds the narration, captions and highlights on its own from the quoted lines. When the
-user asks for a specific effect, write it as a directive on the line before the step it decorates —
-`[ZOOM "text=Save" 1.6]`, `[HIGHLIGHT "label=Email"]`, `[TOOLTIP "Pick a plan" on="text=Pricing"]`,
-`[CHAPTER "Setting up billing"]`, `[CONFETTI 1500]`, `[BLUR "label=Card number"]`, `[PAUSE 0.8]`.
-Point at elements the same human way (`text=`, `label=`, `role=button:Save`, `name=`), never at a
-generated class name. The complete list is in `references/guide-syntax.md`. Effects depend on the plan:
-every plan has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor and
-blur; zoom, arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
+Screen Browser adds the narration, captions and highlights on its own from the caption lines. Beyond
+that, a guide asks for an effect with a directive: a bracketed line placed right before the step it
+decorates, or on the same line as the caption for that step —
+`[HIGHLIGHT "text=New campaign"] [CAPTION "Click New campaign to get started."]`. Point at elements
+the same human way (`text=`, `label=`, `role=button:Save`, `name=`), never at a generated class
+name. The complete list is in `references/guide-syntax.md`.
+
+Which effect for which moment; these are the choices that make a demo video look deliberate:
+
+| Moment | Effect |
+|---|---|
+| The viewer is about to click something | `[HIGHLIGHT "text=Save"]` before the click; the ring stays until the next action |
+| A dense form, card or preview the viewer must read | `[ZOOM "css=…" 1.5]` aimed at the container (the card, the panel), never at its heading; `[ZOOM_OUT]` when done |
+| A control that needs a sentence beside it | `[TOOLTIP "…" on="label=…" placement=right]`, on the side that does not cover a field the viewer is about to fill |
+| Something the video cannot show (what happens later, where data comes from) | `[ANNOTATION …]`, a label pinned to the element; the form is in the reference |
+| A new section of the flow | `[CHAPTER "Title"]`, one per section, two to four per video, with a title that matches what follows |
+| The start of the video | `[HEADLINE "Title"]`, once, on the first line |
+| The end, after the last save | `[CONFETTI 1500]`, once |
+| A number, key or address on screen | `[BLUR "label=…"]` |
+
+Rules that keep it readable: one effect per moment (a ring or a zoom or a tooltip, not two cards on
+the screen at once; a zoom on a card with a ring on the same card is the exception that works); a
+caption on every action; no tooltip or annotation on top of the thing the next step types into;
+zoom factors 1.4–1.6 on desktop and 1.4 or below on a phone. Effects depend on the plan: every plan
+has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor and blur;
+zoom, arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
 outside the plan is skipped at recording time (the step still runs); `validate_guide` warns about it.
 
 ## Running out of credits

@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 — 2026-09-20
+
+- The skill now says which effect fits which moment (a ring before a click, a zoom aimed at the
+  card rather than its heading, a tooltip on the side that covers nothing, an annotation for what
+  the video cannot show, one chapter card per section), asks for a caption before every action the
+  viewer should hear about, and has the agent review the video at the moment of every effect
+  before handing it over. The free check runs after every edit. Written from one real Claude Code
+  session and its twelve takes of the same guide.
+
 ## 1.1.1 — 2026-09-15
 
 - Listing metadata for the plugin marketplace: `displayName` ("Screen Browser"), a `mcpServers`
