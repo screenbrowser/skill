@@ -1,16 +1,31 @@
 # Screen Browser skill
 
-Turn a feature of your web app into a narrated tutorial video, from inside your coding agent.
+Narrated demo and tutorial videos of your web app, from a guide or your coding agent.
 
-[Screen Browser](https://screenbrowser.com) records a real browser following a written guide against
-your deployed app, adds a narrator and on-screen effects, and returns an MP4. This repository gives
-your AI coding agent two things:
+Ask the agent that knows your codebase for a tutorial video of a feature. It writes the walkthrough
+in the words your buttons and fields use, [Screen Browser](https://screenbrowser.com) records a real
+browser following it against your deployed app, narrates it, adds the on-screen effects, and the
+agent hands you the MP4 with a GIF, subtitles and chapters. When the app changes, edit a line and
+ask again.
+
+[![The first chapter of a tutorial video Claude Code made from one sentence: a campaign being created in Chatamatic, narrated and captioned](https://media.screenbrowser.com/guides/claude-code-demo-video/create-a-campaign-chapter-1-v14.gif)](https://screenbrowser.com/guides/claude-code-demo-video/)
+
+That is the first chapter of a 66-second video made from the request *"make a tutorial video of
+creating a campaign"*. The whole session, from that sentence to the finished video with the exact
+prompt and every screen along the way, is in the
+[Claude Code guide](https://screenbrowser.com/guides/claude-code-demo-video/).
+
+This repository gives your agent two things:
 
 - **The `screenbrowser` skill** — how to read your codebase and write the two guides Screen Browser
-  needs (the login flow and the walkthrough), how to validate them, and how to run the recording.
+  needs (the login flow and the walkthrough), which effect fits which moment, how to check a guide
+  for free before recording, and how to review the video before handing it over.
 - **The MCP server configuration** — the tools the agent calls: create the project, upload guides,
-  start the run, poll it, fetch the video. The server itself is part of your Screen Browser
-  account at `https://mcp.screenbrowser.com`.
+  check them, start the run, poll it, fetch the video. The server itself is part of your Screen
+  Browser account at `https://mcp.screenbrowser.com`.
+
+Claude Code, Codex, Cursor or any MCP client can use it. Sign-in happens in the browser; there is
+no key to paste.
 
 ## Install (Claude Code)
 
@@ -102,7 +117,7 @@ show them to you, start the run, and give you the video link a few minutes later
 The MCP server also ships a `write-tutorial-guide` prompt that walks any client through the same
 flow, and two resources: `screenbrowser://guide-syntax` and `screenbrowser://example-guides`.
 
-## What the agent needs from you
+## What your app needs
 
 - A **demo user** that signs in with email and password: no OAuth, no 2FA, no captcha. Seed it with
   realistic data.
@@ -110,6 +125,12 @@ flow, and two resources: `screenbrowser://guide-syntax` and `screenbrowser://exa
   auth provider, CDN).
 - Confirmation that you are allowed to record the app (yours, a client's with permission, or an
   internal tool).
+
+## What it costs
+
+Plans start at $49 a month, sized in minutes of finished video. Checking a guide before recording
+is free, and a run that fails is not charged. Videos are capped at five minutes; there is no free
+plan. Current prices are on the [pricing page](https://screenbrowser.com/pricing/).
 
 ## Layout
 
