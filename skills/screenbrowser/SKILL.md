@@ -62,7 +62,8 @@ the plugin or register the server; if they are present but every call is refused
    until `passed` is true. The check is free and walks the guide against the live app without
    recording; run it after every edit, not only the first time. Show both guides to the user before
    uploading.
-6. **Upload and run.** `put_guide` auth, `put_guide` main (give it a name), `start_run` (with
+6. **Upload and run.** `put_guide` auth, `put_guide` main (give it a `name`, and a `video_title` when
+   the opening should say something other than the name), `start_run` (with
    `device`, `frame`, `backdrop` for a phone or tablet version), then `get_run`
    every 15–30 seconds until `is_terminal`. Runs take 2–6 minutes; do not start a second run of the
    same project while one is in progress. A failed run costs nothing and is the fastest way to learn
@@ -131,6 +132,22 @@ zoom factors 1.4–1.6 on desktop and 1.4 or below on a phone. Effects depend on
 has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor and blur;
 zoom, arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
 outside the plan is skipped at recording time (the step still runs); `validate_guide` warns about it.
+
+## Opening and ending
+
+A workspace with a brand (Settings › Brand in the app: logo, colours, font, call to action) gets a
+branded opening with the video's title and an ending with its call to action on every video. They
+are free: they do not count toward the minutes. The opening shows the guide's `video_title`, or its
+name when there is none, so write it the way a viewer would title the video ("Invite a teammate").
+
+- When the project has an opening, do not add a `[HEADLINE]` on the first line: the opening already
+  shows the title.
+- `update_project` sets the project's own choice (Pro and above): `bookends_mode: "custom"`,
+  `opening_style` (`clean`, `bold`, `minimal`, `product`, `none`), `ending_style` (`clean`, `bold`,
+  `minimal`, `none`), `opening_seconds` / `ending_seconds` (3–10), `cta_text`, `fade`, and
+  `narrate_title` for a spoken "In this video: …". `bookends_mode: "default"` goes back to the
+  workspace default. Logos, fonts and clips are uploaded in the app, not through the tools.
+- Change these only when the user asks; the workspace default is what the user chose for every video.
 
 ## Running out of credits
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 — 2026-09-24
+
+- Openings and endings: the skill gives each main guide a `video_title` for the branded opening,
+  skips `[HEADLINE]` when the project already opens with the title, and knows the new
+  `update_project` fields for a project's own opening and ending (style, 3–10 s length, call to
+  action, fade, narrated title). They are free and uploads stay in the app.
+
 ## 1.2.0 — 2026-09-20
 
 - The skill now says which effect fits which moment (a ring before a click, a zoom aimed at the
