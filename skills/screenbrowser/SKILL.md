@@ -145,7 +145,9 @@ name when there is none, so write it the way a viewer would title the video ("In
 - `update_project` sets the project's own choice (Pro and above): `bookends_mode: "custom"`,
   `opening_style` (`clean`, `bold`, `minimal`, `product`, `none`), `ending_style` (`clean`, `bold`,
   `minimal`, `none`), `opening_seconds` / `ending_seconds` (3–10), `cta_text`, `fade`, and
-  `narrate_title` for a spoken "In this video: …". `bookends_mode: "default"` goes back to the
+  `narrate_title` to have the narrator speak over the opening (off by default), with `title_line`
+  for the words (plain text up to 100 characters, `{title}` fills in the video title; empty speaks
+  the title). `bookends_mode: "default"` goes back to the
   workspace default. Logos, fonts and clips are uploaded in the app, not through the tools.
 - Change these only when the user asks; the workspace default is what the user chose for every video.
 

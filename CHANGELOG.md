@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1 — 2026-09-24
+
+- `update_project` takes `title_line`, the words the narrator says over the opening (`{title}`
+  fills in the video title). The narrated opening is off by default.
+
 ## 1.3.0 — 2026-09-24
 
 - Openings and endings: the skill gives each main guide a `video_title` for the branded opening,
