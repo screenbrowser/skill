@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.6 — 2026-09-27
+
+- Zoom is included on every plan; the skill's plan note lists it with the everyday effects.
+
 ## 1.3.5 — 2026-09-27
 
 - Manifest names the terms of service, the support page and the documentation page for directory listings.

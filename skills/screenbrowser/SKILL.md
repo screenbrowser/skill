@@ -129,8 +129,8 @@ Rules that keep it readable: one effect per moment (a ring or a zoom or a toolti
 the screen at once; a zoom on a card with a ring on the same card is the exception that works); a
 caption on every action; no tooltip or annotation on top of the thing the next step types into;
 zoom factors 1.4–1.6 on desktop and 1.4 or below on a phone. Effects depend on the plan: every plan
-has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor and blur;
-zoom, arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
+has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor, blur and zoom;
+arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
 outside the plan is skipped at recording time (the step still runs); `validate_guide` warns about it.
 
 ## Opening and ending
