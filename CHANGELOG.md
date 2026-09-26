@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.5 — 2026-09-27
+
+- Manifest names the terms of service, the support page and the documentation page for directory listings.
+
 ## 1.3.4 — 2026-09-27
 
 - README: the API-key example shows a placeholder instead of an environment variable.
