@@ -65,8 +65,11 @@ dynamic client registration for interactive sign-in, or `Authorization: Bearer <
 The skill is a plain `SKILL.md` in the open Agent Skills format, and the server is standard MCP over
 HTTP, so the same two pieces work outside Claude Code.
 
-**Cursor** — add the server to `.cursor/mcp.json` (or the global one in Cursor settings), click
-**Sign in** next to it when Cursor offers, and copy the skill into `.cursor/skills/`:
+**Cursor, VS Code, GitHub Copilot and other Agent Plugins clients** — this repository is also an
+[Agent Plugins](https://agent-plugins.org/) package (`plugin.json`, `mcp.json`, `skills/`), so
+install it as a plugin from the repository URL and sign in when the client offers. Cursor without
+the plugin: add the server to `.cursor/mcp.json` (or the global one in Cursor settings), click
+**Sign in** next to it, and copy the skill into `.cursor/skills/`:
 
 ```json
 {
@@ -135,9 +138,11 @@ plan. Current prices are on the [pricing page](https://screenbrowser.com/pricing
 ## Layout
 
 ```
-.claude-plugin/plugin.json         plugin manifest
-.claude-plugin/marketplace.json    lets this repo act as its own marketplace
-.mcp.json                          MCP server config (the URL; sign-in is OAuth)
+plugin.json                        Agent Plugins manifest (Cursor, VS Code, Copilot, …)
+mcp.json                           Agent Plugins MCP config (the URL; sign-in is OAuth)
+.claude-plugin/plugin.json         Claude Code plugin manifest
+.claude-plugin/marketplace.json    lets this repo act as its own Claude Code marketplace
+.mcp.json                          Claude Code MCP server config
 skills/screenbrowser/SKILL.md      the skill
 skills/screenbrowser/references/   guide syntax reference, worked example
 examples/chatamatic/               a real auth guide + main guide pair

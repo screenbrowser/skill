@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.2 — 2026-09-26
+
+- The repository is an [Agent Plugins](https://agent-plugins.org/) package as well: `plugin.json` and
+  `mcp.json` at the root, so Cursor, VS Code, GitHub Copilot and other clients of the standard install
+  it from the repository URL. Nothing changes for Claude Code.
+- The MCP server's tools now carry titles, annotations, a description on every parameter and an
+  output schema; results also arrive as structured content.
+
 ## 1.3.1 — 2026-09-24
 
 - `update_project` takes `title_line`, the words the narrator says over the opening (`{title}`

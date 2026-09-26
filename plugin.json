@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "screenbrowser",
+  "version": "1.3.2",
+  "description": "Record narrated screen videos of your web app — tutorials, demos and walkthroughs, straight from your code. The skill reads your source to write the recording guides; the MCP server records it on Screen Browser and hands back the video.",
+  "author": {
+    "name": "Screen Browser",
+    "url": "https://screenbrowser.com"
+  },
+  "homepage": "https://screenbrowser.com",
+  "repository": "https://github.com/screenbrowser/skill",
+  "license": "MIT",
+  "keywords": ["video", "audio", "screen recording", "tutorial", "walkthrough", "product demo", "voiceover", "documentation", "mcp"]
+}
