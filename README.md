@@ -129,6 +129,28 @@ flow, and two resources: `screenbrowser://guide-syntax` and `screenbrowser://exa
 - Confirmation that you are allowed to record the app (yours, a client's with permission, or an
   internal tool).
 
+## What it sends, and where
+
+Everything the plugin does goes to one place: the Screen Browser MCP server at
+`https://mcp.screenbrowser.com`, over HTTPS, signed in with your Screen Browser account. The
+skill itself is instructions for the agent; it runs nothing on your machine and fetches nothing.
+
+What the agent sends to Screen Browser when you ask for a video:
+
+- the project's settings: your app's URL, the hosts it talks to, the sign-in check, narration
+  language and voice;
+- the guides it writes from your code: plain sentences naming buttons and fields as they appear on
+  screen. Read them before they are saved; the agent shows them to you;
+- the demo user's credentials, as project variables. Screen Browser stores them encrypted, uses
+  them only to sign in during a recording, and never returns them through any tool or shows them
+  to any model;
+- run commands: start, poll, cancel, and, only if you agree, a failure report with the recorder's
+  screenshot and logs of a run that failed on Screen Browser's side.
+
+It never sends your source code. The agent reads your repository locally to learn the labels; only
+the guide text leaves the machine. Nothing is sent to any other service. What Screen Browser keeps,
+and for how long, is in the [privacy policy](https://screenbrowser.com/legal/privacy/).
+
 ## What it costs
 
 Plans start at $49 a month, sized in minutes of finished video. Checking a guide before recording

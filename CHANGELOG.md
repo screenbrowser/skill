@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.3 — 2026-09-27
+
+- Plugin manifest carries an icon, the privacy policy and the docs page; the README says exactly what the
+  plugin sends to Screen Browser and what never leaves your machine.
+
 ## 1.3.2 — 2026-09-26
 
 - The repository is an [Agent Plugins](https://agent-plugins.org/) package as well: `plugin.json` and
