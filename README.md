@@ -54,7 +54,7 @@ Screen Browser and pass it as a bearer token:
 
 ```bash
 claude mcp add --transport http screenbrowser https://mcp.screenbrowser.com \
-  --header "Authorization: Bearer $SCREENBROWSER_API_KEY"
+  --header "Authorization: Bearer <your API key>"
 ```
 
 Any MCP client works the same way: Streamable HTTP at `https://mcp.screenbrowser.com`, OAuth 2.1 with

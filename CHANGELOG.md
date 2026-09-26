@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4 — 2026-09-27
+
+- README: the API-key example shows a placeholder instead of an environment variable.
+
 ## 1.3.3 — 2026-09-27
 
 - Plugin manifest carries an icon, the privacy policy and the docs page; the README says exactly what the
