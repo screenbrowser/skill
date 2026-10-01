@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.7 — 2026-10-01
+
+- Credential wording: values are stored encrypted and never returned by any tool; values given to the agent pass through its conversation, so set them in the dashboard to keep them out of chat.
+
 ## 1.3.6 — 2026-09-27
 
 - Zoom is included on every plan; the skill's plan note lists it with the everyday effects.

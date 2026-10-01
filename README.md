@@ -142,8 +142,9 @@ What the agent sends to Screen Browser when you ask for a video:
 - the guides it writes from your code: plain sentences naming buttons and fields as they appear on
   screen. Read them before they are saved; the agent shows them to you;
 - the demo user's credentials, as project variables. Screen Browser stores them encrypted, uses
-  them only to sign in during a recording, and never returns them through any tool or shows them
-  to any model;
+  them only to sign in during a recording, and never returns them through any tool. Values you
+  give the agent pass through its conversation; to keep them out of chat, set them on the
+  project's page in the Screen Browser dashboard instead;
 - run commands: start, poll, cancel, and, only if you agree, a failure report with the recorder's
   screenshot and logs of a run that failed on Screen Browser's side.
 

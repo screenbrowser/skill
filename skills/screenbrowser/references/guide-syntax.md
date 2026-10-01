@@ -7,7 +7,7 @@ precise forms below are there when a step needs them, not the way guides are nor
 
 - **Auth guide** — the login flow only. Runs first, is never recorded, and may use `{USERNAME}` /
   `{PASSWORD}` placeholders (values come from the project's encrypted variables and are substituted
-  only inside the browser, never sent to a model).
+  only inside the recording browser, never returned by any tool).
 - **Main guide** — the walkthrough that becomes the video. Runs after login, recorded, narrated.
 
 Recording starts only after the **login gate** passes. The gate is one or more of: the address bar
