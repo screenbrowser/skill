@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.8 — 2026-10-06
+
+- Setup says what connecting needs (a plan and a confirmed email address) and points new users to the 7-day trial.
+
 ## 1.3.7 — 2026-10-01
 
 - Credential wording: values are stored encrypted and never returned by any tool; values given to the agent pass through its conversation, so set them in the dashboard to keep them out of chat.
