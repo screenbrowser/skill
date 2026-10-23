@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.9 — 2026-10-23
+
+- `validate_guide` is described as what it is: an instant check of the guide's text, without opening the app.
+- A failed sign-in is named by its real error code, `login_failed` ("Sign-in didn't go through").
+
 ## 1.3.8 — 2026-10-06
 
 - Setup says what connecting needs (a plan and a confirmed email address) and points new users to the 7-day trial.

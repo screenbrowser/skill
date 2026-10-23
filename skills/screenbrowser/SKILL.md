@@ -63,8 +63,10 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
    factors at 1.4 or below, the screen is small. If a step
    creates data, name it so reruns do not collide, or delete it at the end of the guide.
 5. **Validate.** `validate_guide` (kind `auth`, then `main`, with `project_id`) and fix every problem
-   until `passed` is true. The check is free and walks the guide against the live app without
-   recording; run it after every edit, not only the first time. Show both guides to the user before
+   until `passed` is true. The check is free and instant: it reads the guide (directives, variables,
+   secrets typed literally, the "Go to" start, length and cost) without opening the app, so a label
+   the page does not show still only appears on the first run. Run it after every edit, not only the
+   first time. Show both guides to the user before
    uploading.
 6. **Upload and run.** `put_guide` auth, `put_guide` main (give it a `name`, and a `video_title` when
    the opening should say something other than the name), `start_run` (with
@@ -72,8 +74,9 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
    every 15–30 seconds until `is_terminal`. Runs take 2–6 minutes; do not start a second run of the
    same project while one is in progress. A failed run costs nothing and is the fastest way to learn
    what the page really calls things: `get_run` lists what was resolved and what was learned per step.
-   If a run fails with "Login gate failed", the gate was wrong: fix it with `update_project` and start
-   again.
+   If a run fails with `error.code` `login_failed` ("Sign-in didn't go through"), check the demo
+   credentials first; if they are right, the login gate was wrong: fix it with `update_project` and
+   start again.
 7. **Review, then deliver.** Before handing the video over, look at it the way the user will: play it,
    or read frames at the moment of every effect the guide asks for. Check that the ring is on the
    thing about to be clicked before the click, that the words name what is on screen at that moment,
