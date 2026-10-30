@@ -29,8 +29,8 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
 
 ## Workflow
 
-1. **Check credits.** `get_credits`. A one-minute video costs about 10 credits; a run charges nothing
-   unless it completes.
+1. **Check credits.** `get_credits`. A one-minute video costs about 15 credits with the default Studio voice, 10 with a
+   Standard voice; a run charges nothing unless it completes.
 2. **Find or create the project.** `list_projects`; if the app is not there, gather from the user:
    the deployed URL to record (staging or production), a **demo user** that signs in with email and
    password only (no OAuth, no 2FA, no captcha, no new-device email), and which attestation applies
@@ -38,7 +38,8 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
    a login gate — `login_success_url_contains` when the post-login redirect in the code goes to a
    distinct path such as `/dashboard`, otherwise `login_success_text` (words only a signed-in user
    sees) — and `allow_hosts` (every host the frontend calls: API subdomain, auth provider, CDN).
-   Credentials go in `variables`, never in guides. Narration defaults to English in the language's default
+   Credentials go in `variables`, never in guides; a user who keeps them out of chat sets them on
+   `project_url`, and `start_run` refuses until every `{VARIABLE}` has a value. Narration defaults to English in the language's default
    voice; when the user wants another language or a particular voice, `list_voices` (optionally with a
    `language`) shows the ids, tiers and credits per minute, and `create_project` / `update_project` take
    `language` and `voice`. A single video can use a different voice via `start_run`'s `voice`.
@@ -48,20 +49,9 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
    frame, `landscape` widescreen 16:9 with the phone upright, or `none` for the bare screen) and a
    `backdrop` (`neutral` or `brand`). One run is one device: for a desktop and a phone version,
    start two runs of the same guide and pass `device` to the second. Same credits per minute.
-3. **Write the auth guide** from the login form in the code: go to the login page, type
-   `{USERNAME}` into the field the user sees as the email or username field, `{PASSWORD}` into the
-   password field, press the sign-in button, then `Confirm` something only a signed-in user sees.
-4. **Write the main guide** for the feature, in the words a colleague would use over the shoulder:
-   10–25 steps, one action per line, each naming the thing as it appears on screen — the button's
-   text, the field's label, the menu item's words. Put a `[CAPTION "…"]` line before every action
-   the viewer should hear about, in the words a narrator would say: the captions are the narration,
-   spoken verbatim, so a click without one plays in silence and reads as a cut. One short sentence
-   each; a caption may cover the two or three actions that follow it.
-   Put a `Confirm …` line after every navigation or save so a broken flow stops early. For a
-   phone or tablet run, never write hover steps (a touch screen has no pointer; the recorder
-   skips them) and name mobile navigation as the user sees it ("the menu button"); keep zoom
-   factors at 1.4 or below, the screen is small. If a step
-   creates data, name it so reruns do not collide, or delete it at the end of the guide.
+3. **Write the auth guide** from the login form in the code (see "Writing the two guides" below).
+4. **Write the main guide** for the feature, 10–25 steps with a caption before every action the viewer
+   should hear about (same section).
 5. **Validate.** `validate_guide` (kind `auth`, then `main`, with `project_id`) and fix every problem
    until `passed` is true. The check is free and instant: it reads the guide (directives, variables,
    secrets typed literally, the "Go to" start, length and cost) without opening the app, so a label
@@ -72,23 +62,38 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
    the opening should say something other than the name), `start_run` (with
    `device`, `frame`, `backdrop` for a phone or tablet version), then `get_run`
    every 15–30 seconds until `is_terminal`. Runs take 2–6 minutes; do not start a second run of the
-   same project while one is in progress. A failed run costs nothing and is the fastest way to learn
-   what the page really calls things: `get_run` lists what was resolved and what was learned per step.
+   same project while one is in progress.
    If a run fails with `error.code` `login_failed` ("Sign-in didn't go through"), check the demo
    credentials first; if they are right, the login gate was wrong: fix it with `update_project` and
    start again.
-7. **Review, then deliver.** Before handing the video over, look at it the way the user will: play it,
-   or read frames at the moment of every effect the guide asks for. Check that the ring is on the
-   thing about to be clicked before the click, that the words name what is on screen at that moment,
-   that no card or tooltip covers a field being typed into, and that each chapter card's title
-   matches what follows it. A miss is a guide edit and a rerun (`put_guide`, `start_run`), which
-   costs the same as the first take. Then give the user `video_url` (signed, valid 15 minutes; call
+7. **Review, then deliver.** Review the take as described in "Review the take before handing it over"
+   below. Then give the user `video_url` (signed, valid 15 minutes; call
    `get_run` again for a fresh link) and the credits charged, and ask what to change: every note in
    plain words is one edit to the guide and one more run. `get_run`'s `artifacts` also carry the exports: `gif` (animated GIF of the
    video), `chapter_gifs` (zip, one per chapter), `subtitles_vtt` / `subtitles_srt`, and `chapters` (YouTube's
    chapter list) — hand over the ones the user asked for, or all of them for an upload elsewhere. On failure read `error.hints`, fix the guide, and retry once. Typical
    causes: the login gate never appeared, a host missing from `allow_hosts`, the demo user hit a
    captcha, a step that names something the page does not show.
+
+The guide syntax and the examples are in `references/guide-syntax.md` and `references/example-guides.md`.
+
+<!-- GENERATED WRITING GUIDES START — DO NOT EDIT. Change web/resources/mcp/writing-guides.md and run scripts/docs/sync-skill.php. -->
+
+## Writing the two guides
+
+**The auth guide** comes from the login form in the code: go to the login page, type `{USERNAME}` into
+the field the user sees as the email or username field, `{PASSWORD}` into the password field, press the
+sign-in button, then `Confirm` something only a signed-in user sees.
+
+**The main guide** covers the feature, in the words a colleague would use over the shoulder: 10–25 steps,
+one action per line, each naming the thing as it appears on screen — the button's text, the field's label,
+the menu item's words. Put a `[CAPTION "…"]` line before every action the viewer should hear about, in the
+words a narrator would say: the captions are the narration, spoken verbatim, so a click without one plays
+in silence and reads as a cut. One short sentence each; a caption may cover the two or three actions that
+follow it. Put a `Confirm …` line after every navigation or save so a broken flow stops early. For a phone
+or tablet run, never write hover steps (a touch screen has no pointer; the recorder skips them) and name
+mobile navigation as the user sees it ("the menu button"); keep zoom factors at 1.4 or below, the screen is
+small. If a step creates data, name it so reruns do not collide, or delete it at the end of the guide.
 
 ## Writing guides that work on the first run
 
@@ -97,8 +102,7 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
   their label or placeholder, and learns the rest from the live page.
 - **Never use class names a build tool generated** (`css-1x9f2k`, `sc-bdVaJa`, `_1a2b3c`): they change
   with every deploy and `validate_guide` refuses them. Ids and `name=` attributes from the templates
-  are fine when a step needs precision; the syntax for that is in `references/guide-syntax.md`, but a
-  good guide rarely needs it.
+  are fine when a step needs precision; the guide syntax shows how, but a good guide rarely needs it.
 - **Use what you have.** With the source code, read the templates for the real labels and names.
   With a browser tool, open the dev server and look at the page. With neither, write plain prose and
   let the run learn.
@@ -117,7 +121,7 @@ that, a guide asks for an effect with a directive: a bracketed line placed right
 decorates, or on the same line as the caption for that step —
 `[HIGHLIGHT "text=New campaign"] [CAPTION "Click New campaign to get started."]`. Point at elements
 the same human way (`text=`, `label=`, `role=button:Save`, `name=`), never at a generated class
-name. The complete list is in `references/guide-syntax.md`.
+name. The guide syntax has the complete list.
 
 Which effect for which moment; these are the choices that make a demo video look deliberate:
 
@@ -126,7 +130,7 @@ Which effect for which moment; these are the choices that make a demo video look
 | The viewer is about to click something | `[HIGHLIGHT "text=Save"]` before the click; the ring stays until the next action |
 | A dense form, card or preview the viewer must read | `[ZOOM "css=…" 1.5]` aimed at the container (the card, the panel), never at its heading; `[ZOOM_OUT]` when done |
 | A control that needs a sentence beside it | `[TOOLTIP "…" on="label=…" placement=right]`, on the side that does not cover a field the viewer is about to fill |
-| Something the video cannot show (what happens later, where data comes from) | `[ANNOTATION …]`, a label pinned to the element; the form is in the reference |
+| Something the video cannot show (what happens later, where data comes from) | `[ANNOTATION …]`, a label pinned to the element; the guide syntax has the form |
 | A new section of the flow | `[CHAPTER "Title"]`, one per section, two to four per video, with a title that matches what follows |
 | The start of the video | `[HEADLINE "Title"]`, once, on the first line |
 | The end, after the last save | `[CONFETTI 1500]`, once |
@@ -139,6 +143,17 @@ zoom factors 1.4–1.6 on desktop and 1.4 or below on a phone. Effects depend on
 has captions, toasts, highlights, dim, annotations, chapters, step numbers, scroll, cursor, blur and zoom;
 arrows, tooltips, headlines, fades, freeze, speed and confetti need Pro or above. An effect
 outside the plan is skipped at recording time (the step still runs); `validate_guide` warns about it.
+
+## Review the take before handing it over
+
+Look at the video the way the user will: play it, or read frames at the moment of every effect the guide
+asks for. Check that the ring is on the thing about to be clicked before the click, that the words name
+what is on screen at that moment, that no card or tooltip covers a field being typed into, and that each
+chapter card's title matches what follows it. A miss is a guide edit and a rerun (`put_guide`,
+`start_run`), which costs the same as the first take. A failed run costs nothing and is the fastest way to
+learn what the page really calls things: `get_run` lists what was resolved and what was learned per step.
+
+<!-- GENERATED WRITING GUIDES END -->
 
 ## Opening and ending
 

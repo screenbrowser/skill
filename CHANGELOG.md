@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.10 — 2026-10-30
+
+- The MCP server has a `get_guide_instructions` tool with the same writing rules as this skill, so an agent without the skill writes guides the same way.
+- `put_guide` with a new `name` starts another video on the project instead of replacing the newest guide; `guide_id` saves a new version of a specific guide. New `get_guide` tool reads a saved guide.
+- `get_run` warns when a guide line named something that was not on the page and the recorder used a close match.
+- `validate_guide` gives a corrected example for each problem.
+- A second example guide, in plain language without selectors; the first is now a guide from a real first-run test.
+- `create_project` and `list_projects` return `project_url`; `start_run` refuses a run whose guides use a variable with no value, instead of failing at sign-in.
+- `get_credits` also gives the rate of the default Studio voice.
+- `get_run` lists the video and its exports only.
+
 ## 1.3.9 — 2026-10-23
 
 - `validate_guide` is described as what it is: an instant check of the guide's text, without opening the app.

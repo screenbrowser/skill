@@ -117,8 +117,9 @@ The agent will check credits, create the project (it will ask you for the deploy
 user, and the legal attestation), write the guides from your routes and templates, validate them,
 show them to you, start the run, and give you the video link a few minutes later.
 
-The MCP server also ships a `write-tutorial-guide` prompt that walks any client through the same
-flow, and two resources: `screenbrowser://guide-syntax` and `screenbrowser://example-guides`.
+The MCP server also ships a `get_guide_instructions` tool with the same writing rules, for clients
+without this skill, a `write-tutorial-guide` prompt that walks any client through the same flow, and
+two resources: `screenbrowser://guide-syntax` and `screenbrowser://example-guides`.
 
 ## What your app needs
 

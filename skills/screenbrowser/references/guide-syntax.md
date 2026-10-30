@@ -54,7 +54,7 @@ Rules:
   are rejected.
 - After every navigation or form submit, add a `Confirm …` line so a broken flow stops early.
 - Never type a real password or token literally; always `{VARIABLE}`.
-- Start every guide with `Go to https://…`.
+- Start every guide with `Go to https://…`. Addresses use https://, on port 443 (the default), 80, 3000, 8000, 8080 or 8443.
 
 ## Directive lines (effects and narration)
 
@@ -103,7 +103,6 @@ close with a `[TOAST]` or `[CAPTION]` that confirms the result, then `[CLEAR_OVE
   `allow_hosts`; the recording browser can reach only those.
 - The flow must be repeatable: if a step creates something (a campaign named "Spring promo"), either
   delete it afterwards in the guide or make the name unique per run.
-
 
 ## Optional steps
 
