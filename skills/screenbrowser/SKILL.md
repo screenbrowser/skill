@@ -61,7 +61,7 @@ minutes in the first paid month): https://screenbrowser.com/pricing/. Say this p
 6. **Upload and run.** `put_guide` auth, `put_guide` main (give it a `name`, and a `video_title` when
    the opening should say something other than the name), `start_run` (with
    `device`, `frame`, `backdrop` for a phone or tablet version), then `get_run`
-   every 15–30 seconds until `is_terminal`. Runs take 2–6 minutes; do not start a second run of the
+   every 15–30 seconds until `is_terminal`. Most runs take 2–6 minutes, a long guide up to 15, so keep polling; do not start a second run of the
    same project while one is in progress.
    If a run fails with `error.code` `login_failed` ("Sign-in didn't go through"), check the demo
    credentials first; if they are right, the login gate was wrong: fix it with `update_project` and

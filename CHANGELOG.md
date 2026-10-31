@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.11 — 2026-10-31
+
+- Most runs take 2–6 minutes and a long guide up to 15, so keep polling until `is_terminal`.
+- `get_run` warns when a page or video inside the app could not load during the recording.
+
 ## 1.3.10 — 2026-10-30
 
 - The MCP server has a `get_guide_instructions` tool with the same writing rules as this skill, so an agent without the skill writes guides the same way.
