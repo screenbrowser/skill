@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.13 — 2026-11-03
+
+- Shorter listing descriptions: your coding agent records demo and tutorial videos of your web app.
+
 ## 1.3.12 — 2026-11-03
 
 - New accounts: the first 100 get 10 free minutes of video with no card; the skill points users without an account to the free sign-up, and to the $3.99 trial once it is full.

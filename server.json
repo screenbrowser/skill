@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.screenbrowser/screenbrowser",
   "title": "Screen Browser",
-  "description": "Narrated demo and tutorial videos of your web app, from a guide or your coding agent.",
-  "version": "1.3.12",
+  "description": "Your coding agent records a demo or tutorial video of your web app.",
+  "version": "1.3.13",
   "websiteUrl": "https://screenbrowser.com/for-agents/",
   "repository": {
     "url": "https://github.com/screenbrowser/skill",
