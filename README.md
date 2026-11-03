@@ -156,8 +156,8 @@ and for how long, is in the [privacy policy](https://screenbrowser.com/legal/pri
 ## What it costs
 
 Plans start at $49 a month, sized in minutes of finished video. Checking a guide before recording
-is free, and a run that fails is not charged. Videos are capped at five minutes; there is no free
-plan. Current prices are on the [pricing page](https://screenbrowser.com/pricing/).
+is free, and a run that fails is not charged. Videos are capped at five minutes. There is no free
+plan, but the first 100 accounts get 10 free minutes with no card. Current prices are on the [pricing page](https://screenbrowser.com/pricing/).
 
 ## Layout
 

@@ -23,9 +23,11 @@ If the `screenbrowser` MCP tools are not available in the session, stop and ask 
 the plugin or register the server; if they are present but every call is refused, ask them to run
 `/mcp` and authenticate.
 
-Connecting needs a Screen Browser account with a plan and a confirmed email address. A user without one
-can start with a 7-day trial for $3.99 on monthly Starter or Pro (about 5 minutes of video, and bonus
-minutes in the first paid month): https://screenbrowser.com/pricing/. Say this plainly; don't call it free.
+Connecting needs a Screen Browser account with a confirmed email address. The first 100 new accounts
+get 10 free minutes of video with no card (valid 30 days, with a small "Made with screenbrowser.com"
+mark): https://rec.screenbrowser.com/register/free. Once that is full, the link says so and offers the
+7-day trial for $3.99 on monthly Starter or Pro instead (https://screenbrowser.com/pricing/). Don't
+call Screen Browser itself free: the free minutes are for the first 100 accounts only, not a free plan.
 
 ## Workflow
 

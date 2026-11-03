@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.12 — 2026-11-03
+
+- New accounts: the first 100 get 10 free minutes of video with no card; the skill points users without an account to the free sign-up, and to the $3.99 trial once it is full.
+
 ## 1.3.11 — 2026-10-31
 
 - Most runs take 2–6 minutes and a long guide up to 15, so keep polling until `is_terminal`.
