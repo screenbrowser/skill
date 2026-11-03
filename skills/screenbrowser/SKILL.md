@@ -24,8 +24,8 @@ the plugin or register the server; if they are present but every call is refused
 `/mcp` and authenticate.
 
 Connecting needs a Screen Browser account with a confirmed email address. The first 100 new accounts
-get 10 free minutes of video with no card (valid 30 days, with a small "Made with screenbrowser.com"
-mark): https://rec.screenbrowser.com/register/free. Once that is full, the link says so and offers the
+get 10 free minutes of video with no card (valid 30 days, with a small Screen Browser
+logo on the video): https://rec.screenbrowser.com/register/free. Once that is full, the link says so and offers the
 7-day trial for $3.99 on monthly Starter or Pro instead (https://screenbrowser.com/pricing/). Don't
 call Screen Browser itself free: the free minutes are for the first 100 accounts only, not a free plan.
 

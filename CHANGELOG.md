@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.14 — 2026-11-04
+
+- Free videos carry a small Screen Browser logo; the skill says so when it points to the free sign-up.
+
 ## 1.3.13 — 2026-11-03
 
 - Shorter listing descriptions: your coding agent records demo and tutorial videos of your web app.

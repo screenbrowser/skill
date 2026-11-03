@@ -3,7 +3,7 @@
   "name": "com.screenbrowser/screenbrowser",
   "title": "Screen Browser",
   "description": "Your coding agent records a demo or tutorial video of your web app.",
-  "version": "1.3.13",
+  "version": "1.3.14",
   "websiteUrl": "https://screenbrowser.com/for-agents/",
   "repository": {
     "url": "https://github.com/screenbrowser/skill",
