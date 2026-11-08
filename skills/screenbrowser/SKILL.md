@@ -36,7 +36,12 @@ call Screen Browser itself free: the free minutes are for the first 100 accounts
 2. **Find or create the project.** `list_projects`; if the app is not there, gather from the user:
    the deployed URL to record (staging or production), a **demo user** that signs in with email and
    password only (no OAuth, no 2FA, no captcha, no new-device email), and which attestation applies
-   (they own the app, a client authorised them, or it is an internal tool). Then `create_project` with
+   (they own the app, a client authorised them, or it is an internal tool). **If the app only runs on
+   the user's computer**, `localhost` cannot be recorded: start the app and a tunnel in the background
+   (`ngrok http <port>`, or `cloudflared tunnel --url http://localhost:<port>` with no account) and use
+   the tunnel's https address as the target URL and in the guides' `Go to` lines. Screen Browser skips
+   ngrok's free-plan warning page, so the guides need no extra step. Keep the app and the tunnel running
+   until the run ends, and record one video at a time. Then `create_project` with
    a login gate — `login_success_url_contains` when the post-login redirect in the code goes to a
    distinct path such as `/dashboard`, otherwise `login_success_text` (words only a signed-in user
    sees) — and `allow_hosts` (every host the frontend calls: API subdomain, auth provider, CDN).
