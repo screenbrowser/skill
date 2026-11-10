@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.16 — 2026-11-10
+
+- Works from the app's address alone: no source code needed. Inside a codebase, the skill still reads the code for the real labels.
+- Tutorial or promo: a promo is a short, upbeat video of the best parts.
+- Wider triggers: demo, walkthrough, promo, onboarding, launch and pitch-deck videos.
+- New plugin description and keywords.
+
 ## 1.3.15 — 2026-11-08
 
 - Apps that only run on your computer: the skill opens an ngrok or Cloudflare Tunnel address and records that. ngrok's free-plan warning page is skipped, with no extra guide step.

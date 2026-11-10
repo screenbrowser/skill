@@ -1,13 +1,12 @@
 ---
 name: screenbrowser
-description: Produce a narrated tutorial video of a web app with Screen Browser. Use when asked to "make a tutorial video", "record a walkthrough", "create a product demo" or "document this feature as a video" for the app whose source code you are working in. Writes a plain-language guide from the codebase, hands it to the Screen Browser MCP server (create project, upload guides, start the run) and brings back the video.
+description: Record a video of a web app with Screen Browser: a demo, tutorial, walkthrough, promo, onboarding or launch video, or a video for a pitch deck. Use when someone asks to "make a video of my app / website", "record a demo", "show how my app works", "make a promo video" or "document this feature as a video". Works from the app's address alone, or from its source code when you are in it.
 ---
 
-# Screen Browser: tutorial videos from your source code
+# Screen Browser: videos of your web app
 
-Screen Browser turns a written guide into a narrated video: it signs in to the customer's deployed
-app in a real browser, follows the guide, adds the narration and the on-screen effects, and returns
-an MP4. **You write the guide; Screen Browser writes the script.** A guide is plain language — what
+Screen Browser turns a written guide into a video with voiceover: it signs in to the app in a real
+browser, follows the guide, adds the voice and the on-screen effects, and returns an MP4. A guide is plain language — what
 the viewer does and what they see — not selectors, not stage directions. The recorder resolves each
 step against the live page and remembers what it learned for the next run.
 
@@ -29,14 +28,36 @@ logo on the video): https://rec.screenbrowser.com/register/free. Once that is fu
 7-day trial for $3.99 on monthly Starter or Pro instead (https://screenbrowser.com/pricing/). Don't
 call Screen Browser itself free: the free minutes are for the first 100 accounts only, not a free plan.
 
+## Two ways in
+
+- **No source code, just an address** (claude.ai, Cowork, any chat): ask the human for the app's
+  address, what the video should show, and whether it is a tutorial or a promo. Look at the app with
+  your web tools if you have them. If you can't, ask the human to describe the steps and the exact
+  button labels. If the app has a sign-in, ask for a demo account (email and password only; no Google
+  or Microsoft sign-in, no 2FA, no captcha). Never use a real customer's account.
+- **Inside the app's code** (Claude Code, Cursor, Codex): read the templates and routes for the real
+  labels, the login form and the page shown after sign-in. Ask the human only for what the code
+  can't tell you: the deployed address and the demo account.
+
+**Tutorial or promo.** A tutorial explains each step calmly: what the viewer clicks and what it does.
+A promo is 30–60 seconds (about 8–15 steps): it shows the best parts first, skips setup screens, and
+its captions are short, upbeat selling lines.
+
 ## Workflow
 
 1. **Check credits.** `get_credits`. A one-minute video costs about 15 credits with the default Studio voice, 10 with a
    Standard voice; a run charges nothing unless it completes.
 2. **Find or create the project.** `list_projects`; if the app is not there, gather from the user:
-   the deployed URL to record (staging or production), a **demo user** that signs in with email and
-   password only (no OAuth, no 2FA, no captcha, no new-device email), and which attestation applies
-   (they own the app, a client authorised them, or it is an internal tool). **If the app only runs on
+   the app's address (staging or production), a **demo user** that signs in with email and
+   password only (no OAuth, no 2FA, no captcha, no new-device email), and whose app it is: that
+   answer is the attestation (`self_owned`, `client_authorized` or `internal_tool`). Ask it together
+   with the address, not as a separate question: "What's the app's address, and is it your own app, a
+   client's, or an internal tool?" When the user's words already say it ("my app", "our product", or
+   you are in their own codebase), state it in one line ("I'll note this is your own app") instead of
+   asking. Never assume it for a site that looks like someone else's. **No sign-in?** If the app
+   opens without signing in, skip the demo user. The auth guide is two lines, `Go to` the start page
+   and `Confirm` a text that is always there, and the login gate is `login_success_text` with the same
+   text. **If the app only runs on
    the user's computer**, `localhost` cannot be recorded: start the app and a tunnel in the background
    (`ngrok http <port>`, or `cloudflared tunnel --url http://localhost:<port>` with no account) and use
    the tunnel's https address as the target URL and in the guides' `Go to` lines. Screen Browser skips
@@ -56,7 +77,7 @@ call Screen Browser itself free: the free minutes are for the first 100 accounts
    frame, `landscape` widescreen 16:9 with the phone upright, or `none` for the bare screen) and a
    `backdrop` (`neutral` or `brand`). One run is one device: for a desktop and a phone version,
    start two runs of the same guide and pass `device` to the second. Same credits per minute.
-3. **Write the auth guide** from the login form in the code (see "Writing the two guides" below).
+3. **Write the auth guide** from the login form (in the code, or as seen on the page) (see "Writing the two guides" below).
 4. **Write the main guide** for the feature, 10–25 steps with a caption before every action the viewer
    should hear about (same section).
 5. **Validate.** `validate_guide` (kind `auth`, then `main`, with `project_id`) and fix every problem

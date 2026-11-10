@@ -1,8 +1,8 @@
 {
   "name": "screenbrowser",
   "displayName": "Screen Browser",
-  "description": "Your coding agent records demo and tutorial videos of your web app, straight from your code. The skill reads your source to write the recording guides; the MCP server records it on Screen Browser and hands back the video.",
-  "version": "1.3.15",
+  "description": "Record demo, tutorial and promo videos of your web app, with AI voiceover. Give your AI the app's address, or let it read your code: it writes the script, Screen Browser records the video and hands it back.",
+  "version": "1.3.16",
   "author": {
     "name": "Screen Browser",
     "url": "https://screenbrowser.com"
@@ -15,16 +15,6 @@
   "termsOfServiceUrl": "https://screenbrowser.com/legal/terms/",
   "supportUrl": "https://screenbrowser.com/contact/",
   "documentationUrl": "https://screenbrowser.com/docs/agents/",
-  "keywords": [
-    "video",
-    "audio",
-    "screen recording",
-    "tutorial",
-    "walkthrough",
-    "product demo",
-    "voiceover",
-    "documentation",
-    "mcp"
-  ],
+  "keywords": ["video", "screen recording", "demo video", "product demo", "tutorial", "walkthrough", "promo video", "onboarding", "voiceover", "mcp"],
   "mcpServers": "./.mcp.json"
 }
