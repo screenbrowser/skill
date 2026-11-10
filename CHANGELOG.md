@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.17 — 2026-11-10
+
+- Fixed the skill's description so every tool can read it.
+
 ## 1.3.16 — 2026-11-10
 
 - Works from the app's address alone: no source code needed. Inside a codebase, the skill still reads the code for the real labels.

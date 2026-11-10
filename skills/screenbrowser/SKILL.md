@@ -1,6 +1,6 @@
 ---
 name: screenbrowser
-description: Record a video of a web app with Screen Browser: a demo, tutorial, walkthrough, promo, onboarding or launch video, or a video for a pitch deck. Use when someone asks to "make a video of my app / website", "record a demo", "show how my app works", "make a promo video" or "document this feature as a video". Works from the app's address alone, or from its source code when you are in it.
+description: 'Record a video of a web app with Screen Browser: a demo, tutorial, walkthrough, promo, onboarding or launch video, or a video for a pitch deck. Use when someone asks to "make a video of my app / website", "record a demo", "show how my app works", "make a promo video" or "document this feature as a video". Works from the app''s address alone, or from its source code when you are in it.'
 ---
 
 # Screen Browser: videos of your web app

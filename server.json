@@ -3,7 +3,7 @@
   "name": "com.screenbrowser/screenbrowser",
   "title": "Screen Browser",
   "description": "Your AI records a demo, tutorial or promo video of your web app.",
-  "version": "1.3.16",
+  "version": "1.3.17",
   "websiteUrl": "https://screenbrowser.com/for-agents/",
   "repository": {
     "url": "https://github.com/screenbrowser/skill",
