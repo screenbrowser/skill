@@ -142,6 +142,21 @@ small. If a step creates data, name it so reruns do not collide, or delete it at
 - Keep secrets out: never type a real password, token or card number literally.
 - One feature per video. Split long flows into several guides on the same project.
 
+## Flutter web apps
+
+A web app built with Flutter records like any other; the same steps work on the desktop and as a
+phone. Three things differ:
+
+- **Name things by the words on screen**, never by ids or CSS: a Flutter page has none worth using.
+  A checkbox, switch or radio button is named by the text beside it: `Click the "Enable feature" switch`.
+  An icon-only button is named by its tooltip: `Click "Open main menu"`.
+- **Set a slider by the value it shows**: `Set the "Estimated value" slider to $300`.
+- **The app must keep the sign-in after a reload** (a stored session or token). The login runs before
+  recording and the walkthrough opens the app again; an app that holds the sign-in only in memory
+  cannot be recorded. Use text as the login gate, not a URL.
+
+Rows far down a long list are found without `Scroll` steps.
+
 ## Effects (optional)
 
 Screen Browser adds the narration, captions and highlights on its own from the caption lines. Beyond

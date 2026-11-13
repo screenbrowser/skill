@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.18 — 2026-11-13
+
+- Flutter web apps: how to name checkboxes, switches and icon buttons, how to set a slider, and what the sign-in needs.
+
 ## 1.3.17 — 2026-11-10
 
 - Fixed the skill's description so every tool can read it.

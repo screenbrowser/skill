@@ -30,6 +30,7 @@ Click "New campaign"
 Confirm text "What should this campaign do?" is visible
 [HIGHLIGHT "text=Reply privately"] [CAPTION "Choose Reply privately, so they get your message in a DM."]
 Click "Reply privately"
+Click "Continue"
 Confirm text "Where it listens" is visible
 [CAPTION "Give it a name."]
 Type "Workbook giveaway" into selector #nc-name
