@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.19 — 2026-11-16
+
+- 3D apps (WebGL, Three.js): when to turn on 3D recording for a project, what it costs and what to tell the user.
+
 ## 1.3.18 — 2026-11-13
 
 - Flutter web apps: how to name checkboxes, switches and icon buttons, how to set a slider, and what the sign-in needs.

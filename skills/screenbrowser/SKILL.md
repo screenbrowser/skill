@@ -139,6 +139,8 @@ small. If a step creates data, name it so reruns do not collide, or delete it at
 - **First-visit dialogs, cookie banners, "you are already signed in" interstitials:** write them as
   optional steps — `If visible, click "Remind Later"`, `If shown, click "Accept"`. The recorder
   skips an optional step whose element is not on the page instead of failing the run.
+- **Cookie banners:** without a step of your own, the recorder declines optional cookies before
+  recording starts. To accept instead, add `If visible, click "Accept all"` to the guide.
 - Keep secrets out: never type a real password, token or card number literally.
 - One feature per video. Split long flows into several guides on the same project.
 
@@ -156,6 +158,21 @@ phone. Three things differ:
   cannot be recorded. Use text as the login gate, not a URL.
 
 Rows far down a long list are found without `Scroll` steps.
+
+## 3D apps (WebGL, Three.js)
+
+An app that draws 3D graphics with WebGL (a Three.js scene, a map or globe you can turn, a product
+viewer, a game) needs **3D recording**, or its motion may not look smooth in the video.
+
+- **Turn it on for the project:** pass `three_d: true` to `create_project` or `update_project`. It
+  stays on for every video of that project. Leave it off for ordinary apps.
+- **Tell the user first:** it adds 10 credits per minute of video, and these recordings take a few
+  minutes longer to start.
+- **Not sure?** Record without it. When the app's 3D graphics were too much for an ordinary
+  recording, `get_run` returns a warning with code `three_d`: tell the user what it costs, turn it on
+  and record again.
+
+The guide itself is written the same way as for any other app.
 
 ## Effects (optional)
 
