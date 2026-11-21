@@ -111,7 +111,8 @@ The guide syntax and the examples are in `references/guide-syntax.md` and `refer
 
 **The auth guide** comes from the login form in the code: go to the login page, type `{USERNAME}` into
 the field the user sees as the email or username field, `{PASSWORD}` into the password field, press the
-sign-in button, then `Confirm` something only a signed-in user sees.
+sign-in button, then `Confirm` something only a signed-in user sees. If the page needs no sign-in,
+save an empty auth guide and set `login_success_text` to words the page shows.
 
 **The main guide** covers the feature, in the words a colleague would use over the shoulder: 10–25 steps,
 one action per line, each naming the thing as it appears on screen — the button's text, the field's label,

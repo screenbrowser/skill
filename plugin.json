@@ -1,14 +1,112 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "screenbrowser",
-  "version": "1.3.19",
+  "version": "1.3.20",
   "description": "Record demo, tutorial and promo videos of your web app, with AI voiceover. Give your AI the app's address, or let it read your code: it writes the script, Screen Browser records the video and hands it back.",
   "author": {
     "name": "Screen Browser",
-    "url": "https://screenbrowser.com"
+    "url": "https://screenbrowser.com",
+    "email": "support@screenbrowser.com"
   },
   "homepage": "https://screenbrowser.com",
   "repository": "https://github.com/screenbrowser/skill",
   "license": "MIT",
-  "keywords": ["video", "screen recording", "demo video", "product demo", "tutorial", "walkthrough", "promo video", "onboarding", "voiceover", "mcp"]
+  "keywords": [
+    "video",
+    "screen recording",
+    "demo video",
+    "product demo",
+    "tutorial",
+    "walkthrough",
+    "promo video",
+    "onboarding",
+    "voiceover",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Screen Browser",
+        "shortDescription": "Narrated videos of web apps",
+        "longDescription": "Screen Browser records narrated demo, tutorial and promo videos of a web app. Describe the app's address and what the video should show; the plugin writes a step-by-step guide, checks it, and Screen Browser signs in to the app in a real browser with a demo account, follows the guide, records the screen, adds the voiceover and on-screen effects such as zooms, highlights and captions, and returns an MP4 link. When the app changes, edit one line of the guide and record again.\n\nNarration is available in 91 languages, with captions and on-screen labels translated to match. Videos can show the desktop layout or the app's phone layout, up to five minutes long.\n\nWhat you need: a Screen Browser account, a web app reachable over the internet, and a demo user that signs in with email and password (no single sign-on, no two-factor codes, no captcha). Sign-in details are stored encrypted and typed only into the app being recorded.",
+        "developerName": "Screen Browser",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Record a narrated demo or tutorial video of a web app",
+          "Write and check the step-by-step guide for a video",
+          "Re-record a video after the app changed",
+          "Narrate in 91 languages, desktop or phone layout",
+          "Report the status of a recording and return the video link"
+        ],
+        "websiteURL": "https://screenbrowser.com",
+        "supportURL": "https://screenbrowser.com/contact/",
+        "privacyPolicyURL": "https://screenbrowser.com/legal/privacy/",
+        "termsOfServiceURL": "https://screenbrowser.com/legal/terms/",
+        "defaultPrompt": [
+          "Make a tutorial video of my web app",
+          "Record a short promo video of my app's best feature",
+          "Re-record my last video after a button was renamed"
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "onboardingSkill": "./skills/screenbrowser/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Show the user's projects and recent videos",
+              "prompt": "Which Screen Browser projects do I have, and what are my latest videos?",
+              "tools_triggered": "list_projects, list_runs",
+              "expected_behavior": "Lists the Chatamatic project and its finished recordings with their dates."
+            },
+            {
+              "description": "Check the balance before recording",
+              "prompt": "How many minutes of video can I still record on Screen Browser?",
+              "tools_triggered": "get_credits",
+              "expected_behavior": "States the organisation's remaining credits and roughly how many minutes of narrated video they buy."
+            },
+            {
+              "description": "Write and check a guide without recording",
+              "prompt": "Write a Screen Browser guide for creating a campaign in Chatamatic and check it, but don't record yet.",
+              "tools_triggered": "get_guide_instructions, get_guide, validate_guide",
+              "expected_behavior": "Writes a plain-language guide, validates it and reports that it passes or what to fix. No recording is started and nothing is charged."
+            },
+            {
+              "description": "Return an existing video",
+              "prompt": "Give me the link to my latest finished Screen Browser video.",
+              "tools_triggered": "list_runs, get_run",
+              "expected_behavior": "Returns a working video link for the most recent completed recording."
+            },
+            {
+              "description": "Find a voice for another language",
+              "prompt": "Which voices can narrate my Screen Browser video in German?",
+              "tools_triggered": "list_voices",
+              "expected_behavior": "Lists the voices available for German narration."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General writing request unrelated to video",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "Editing an existing video file",
+              "prompt": "Trim the first ten seconds off this MP4 and turn it into a GIF."
+            },
+            {
+              "description": "Recording a native phone app",
+              "prompt": "Record a video of the Instagram app on my iPhone."
+            }
+          ]
+        },
+        "demo_recording_url": "https://screenbrowser.com/guides/codex-demo-video/",
+        "commerce": false,
+        "commerce_description": "The plugin takes no payments. When an account runs out of credits, the top_up tool returns a link to the Screen Browser website, where the account owner can buy more."
+      },
+      "publication": {
+        "release_notes": "First release: record narrated videos of a web app from ChatGPT."
+      }
+    }
+  }
 }

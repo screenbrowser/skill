@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.20 — 2026-11-21
+
+- Pages without a sign-in (a public site or docs): save an empty auth guide, and the recording opens the project's address and starts there.
+
 ## 1.3.19 — 2026-11-16
 
 - 3D apps (WebGL, Three.js): when to turn on 3D recording for a project, what it costs and what to tell the user.
