@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.22 — 2026-11-23
+
+- A page without a sign-in that does not show its check words fails as `page_check_failed` ("The page didn't show what we expected"), with what to fix; a new example shows a public-page project.
+
 ## 1.3.21 — 2026-11-23
 
 - A demo account is asked for only when the pages to show sit behind a sign-in; a public page needs only its address.

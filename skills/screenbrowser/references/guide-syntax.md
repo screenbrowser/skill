@@ -99,7 +99,7 @@ close with a `[TOAST]` or `[CAPTION]` that confirms the result, then `[CLEAR_OVE
 
 ## Prerequisites on the customer's side
 
-- A **demo user** that signs in with email + password: no OAuth, no 2FA, no captcha, no "new device"
+- For an app with a sign-in, a **demo user** that signs in with email + password: no OAuth, no 2FA, no captcha, no "new device"
   emails. Seed it with realistic data so the walkthrough has something to show.
 - Every host the app talks to (API subdomain, CDN, auth provider) listed in the project's
   `allow_hosts`; the recording browser can reach only those.

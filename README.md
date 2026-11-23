@@ -123,8 +123,8 @@ two resources: `screenbrowser://guide-syntax` and `screenbrowser://example-guide
 
 ## What your app needs
 
-- A **demo user** that signs in with email and password: no OAuth, no 2FA, no captcha. Seed it with
-  realistic data.
+- If the pages to show sit behind a sign-in, a **demo user** that signs in with email and password:
+  no OAuth, no 2FA, no captcha. Seed it with realistic data. A public page needs only its address.
 - The deployed URL to record (staging is fine) and every host the app talks to (API subdomain,
   auth provider, CDN). An app that only runs on your computer works through a tunnel: ngrok or
   Cloudflare Tunnel ([how](https://screenbrowser.com/docs/local-apps/)).
@@ -143,7 +143,7 @@ What the agent sends to Screen Browser when you ask for a video:
   language and voice;
 - the guides it writes from your code: plain sentences naming buttons and fields as they appear on
   screen. Read them before they are saved; the agent shows them to you;
-- the demo user's credentials, as project variables. Screen Browser stores them encrypted, uses
+- for an app with a sign-in, the demo user's credentials, as project variables. Screen Browser stores them encrypted, uses
   them only to sign in during a recording, and never returns them through any tool. Values you
   give the agent pass through its conversation; to keep them out of chat, set them on the
   project's page in the Screen Browser dashboard instead;

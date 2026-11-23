@@ -104,3 +104,22 @@ Confirm text "Invoice sent" is visible
 [TOAST "Invoice sent!"] [CAPTION "Your customer has it in their inbox."] [PAUSE 1.0]
 [CLEAR_OVERLAYS]
 ```
+
+# Example: a public page without a sign-in — "See the pricing"
+
+Project: target_url `https://www.example.com/`, login_success_text `How it works` (words the home page
+always shows), no variables. The auth guide is saved **empty**: the recording opens the target URL and
+checks the words there.
+
+The auth guide: saved with no content.
+
+## main guide
+
+```
+Go to https://www.example.com/
+[CAPTION "This is the home page."]
+Click "Pricing"
+Confirm text "Plans" is visible
+[CAPTION "Pricing shows every plan side by side."] [PAUSE 0.8]
+[CLEAR_OVERLAYS]
+```

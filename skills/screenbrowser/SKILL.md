@@ -78,6 +78,7 @@ its captions are short, upbeat selling lines.
    `backdrop` (`neutral` or `brand`). One run is one device: for a desktop and a phone version,
    start two runs of the same guide and pass `device` to the second. Same credits per minute.
 3. **Write the auth guide** from the login form (in the code, or as seen on the page) (see "Writing the two guides" below).
+   For a page without a sign-in, save it empty.
 4. **Write the main guide** for the feature, 10–25 steps with a caption before every action the viewer
    should hear about (same section).
 5. **Validate.** `validate_guide` (kind `auth`, then `main`, with `project_id`) and fix every problem
@@ -93,7 +94,9 @@ its captions are short, upbeat selling lines.
    same project while one is in progress.
    If a run fails with `error.code` `login_failed` ("Sign-in didn't go through"), check the demo
    credentials first; if they are right, the login gate was wrong: fix it with `update_project` and
-   start again.
+   start again. On a page without a sign-in the same check fails as `page_check_failed` ("The page
+   didn't show what we expected"): check the address, and set `login_success_text` to words the page
+   always shows.
 7. **Review, then deliver.** Review the take as described in "Review the take before handing it over"
    below. Then give the user `video_url` (signed, valid 15 minutes; call
    `get_run` again for a fresh link) and the credits charged, and ask what to change: every note in
