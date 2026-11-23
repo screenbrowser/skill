@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.21 — 2026-11-23
+
+- A demo account is asked for only when the pages to show sit behind a sign-in; a public page needs only its address.
+
 ## 1.3.20 — 2026-11-21
 
 - Pages without a sign-in (a public site or docs): save an empty auth guide, and the recording opens the project's address and starts there.

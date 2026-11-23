@@ -37,7 +37,8 @@ call Screen Browser itself free: the free minutes are for the first 100 accounts
   or Microsoft sign-in, no 2FA, no captcha). Never use a real customer's account.
 - **Inside the app's code** (Claude Code, Cursor, Codex): read the templates and routes for the real
   labels, the login form and the page shown after sign-in. Ask the human only for what the code
-  can't tell you: the deployed address and the demo account.
+  can't tell you: the deployed address and, if the pages to show sit behind a sign-in, the demo
+  account. A public page needs only its address.
 
 **Tutorial or promo.** A tutorial explains each step calmly: what the viewer clicks and what it does.
 A promo is 30–60 seconds (about 8–15 steps): it shows the best parts first, skips setup screens, and
@@ -48,16 +49,15 @@ its captions are short, upbeat selling lines.
 1. **Check credits.** `get_credits`. A one-minute video costs about 15 credits with the default Studio voice, 10 with a
    Standard voice; a run charges nothing unless it completes.
 2. **Find or create the project.** `list_projects`; if the app is not there, gather from the user:
-   the app's address (staging or production), a **demo user** that signs in with email and
-   password only (no OAuth, no 2FA, no captcha, no new-device email), and whose app it is: that
+   the app's address (staging or production), a **demo user** if the pages to show sit behind a
+   sign-in (email and password only: no OAuth, no 2FA, no captcha, no new-device email), and whose app it is: that
    answer is the attestation (`self_owned`, `client_authorized` or `internal_tool`). Ask it together
    with the address, not as a separate question: "What's the app's address, and is it your own app, a
    client's, or an internal tool?" When the user's words already say it ("my app", "our product", or
    you are in their own codebase), state it in one line ("I'll note this is your own app") instead of
-   asking. Never assume it for a site that looks like someone else's. **No sign-in?** If the app
-   opens without signing in, skip the demo user. The auth guide is two lines, `Go to` the start page
-   and `Confirm` a text that is always there, and the login gate is `login_success_text` with the same
-   text. **If the app only runs on
+   asking. Never assume it for a site that looks like someone else's. **No sign-in?** If the pages to
+   show open without signing in, skip the demo user: save an empty auth guide (the recording opens the
+   project's address and starts there) and set `login_success_text` to words the page always shows. **If the app only runs on
    the user's computer**, `localhost` cannot be recorded: start the app and a tunnel in the background
    (`ngrok http <port>`, or `cloudflared tunnel --url http://localhost:<port>` with no account) and use
    the tunnel's https address as the target URL and in the guides' `Go to` lines. Screen Browser skips
