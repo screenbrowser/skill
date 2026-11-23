@@ -101,8 +101,8 @@ close with a `[TOAST]` or `[CAPTION]` that confirms the result, then `[CLEAR_OVE
 
 - For an app with a sign-in, a **demo user** that signs in with email + password: no OAuth, no 2FA, no captcha, no "new device"
   emails. Seed it with realistic data so the walkthrough has something to show.
-- Every host the app talks to (API subdomain, CDN, auth provider) listed in the project's
-  `allow_hosts`; the recording browser can reach only those.
+- Pages open only on the app's site, the hosts named in the guides and the project's `allow_hosts`:
+  list there other sites the recording opens as pages, such as a sign-in on a separate domain; what the app's pages load in the background (its API, a CDN, fonts, embeds) needs no list.
 - The flow must be repeatable: if a step creates something (a campaign named "Spring promo"), either
   delete it afterwards in the guide or make the name unique per run.
 

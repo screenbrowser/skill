@@ -125,8 +125,9 @@ two resources: `screenbrowser://guide-syntax` and `screenbrowser://example-guide
 
 - If the pages to show sit behind a sign-in, a **demo user** that signs in with email and password:
   no OAuth, no 2FA, no captcha. Seed it with realistic data. A public page needs only its address.
-- The deployed URL to record (staging is fine) and every host the app talks to (API subdomain,
-  auth provider, CDN). An app that only runs on your computer works through a tunnel: ngrok or
+- The deployed URL to record (staging is fine). The app's API, CDN and fonts need no list; only
+  another site the recording opens as a page (a sign-in on a separate domain) goes in the project's
+  allowed hosts. An app that only runs on your computer works through a tunnel: ngrok or
   Cloudflare Tunnel ([how](https://screenbrowser.com/docs/local-apps/)).
 - Confirmation that you are allowed to record the app (yours, a client's with permission, or an
   internal tool).

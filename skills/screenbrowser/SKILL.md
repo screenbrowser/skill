@@ -65,7 +65,8 @@ its captions are short, upbeat selling lines.
    until the run ends, and record one video at a time. Then `create_project` with
    a login gate — `login_success_url_contains` when the post-login redirect in the code goes to a
    distinct path such as `/dashboard`, otherwise `login_success_text` (words only a signed-in user
-   sees) — and `allow_hosts` (every host the frontend calls: API subdomain, auth provider, CDN).
+   sees) — and, only if a step opens a page on another site (a sign-in on a separate domain), `allow_hosts`;
+   the app's API, CDN and fonts need no list.
    Credentials go in `variables`, never in guides; a user who keeps them out of chat sets them on
    `project_url`, and `start_run` refuses until every `{VARIABLE}` has a value. Narration defaults to English in the language's default
    voice; when the user wants another language or a particular voice, `list_voices` (optionally with a
@@ -103,7 +104,7 @@ its captions are short, upbeat selling lines.
    plain words is one edit to the guide and one more run. `get_run`'s `artifacts` also carry the exports: `gif` (animated GIF of the
    video), `chapter_gifs` (zip, one per chapter), `subtitles_vtt` / `subtitles_srt`, and `chapters` (YouTube's
    chapter list) — hand over the ones the user asked for, or all of them for an upload elsewhere. On failure read `error.hints`, fix the guide, and retry once. Typical
-   causes: the login gate never appeared, a host missing from `allow_hosts`, the demo user hit a
+   causes: the login gate never appeared, a page on another site missing from `allow_hosts`, the demo user hit a
    captcha, a step that names something the page does not show.
 
 The guide syntax and the examples are in `references/guide-syntax.md` and `references/example-guides.md`.

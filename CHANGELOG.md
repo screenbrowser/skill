@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.23 — 2026-11-23
+
+- Allowed hosts are only for other sites the recording opens as pages (a sign-in on a separate domain); the app's API, CDN and fonts no longer need listing. A failed sign-in or step names any host the app could not reach.
+
 ## 1.3.22 — 2026-11-23
 
 - A page without a sign-in that does not show its check words fails as `page_check_failed` ("The page didn't show what we expected"), with what to fix; a new example shows a public-page project.
