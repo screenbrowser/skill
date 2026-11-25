@@ -25,6 +25,8 @@ so use a selector or text that exists only for signed-in users.
 | `Go to https://app.example.com/login` | open a URL (the first step of every guide) |
 | `Click selector button[type="submit"]` | click by CSS selector (most reliable) |
 | `Click "New campaign"` | click the element with exactly this visible text |
+| `Double-click "Q3 budget"` | double-click (cells and names that open an editor on a double-click) |
+| `Press and hold the element with test id "seat-2" for 1 second` | keep the pointer down on the element, then let go (long-press menus and pickers) |
 | `Type {USERNAME} into selector input[name="email"]` | type a variable (auth guide) |
 | `Type "Spring promo" into selector #name` | type a literal |
 | `Press Enter` | press a key (Enter, Tab, Escape, …) |

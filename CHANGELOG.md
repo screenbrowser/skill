@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.24 — 2026-11-25
+
+- Guides can double-click (`Double-click "Q3 budget"`) and press and hold (`Press and hold the element with test id "seat-2" for 1 second`) for cells that open an editor and long-press menus.
+
 ## 1.3.23 — 2026-11-23
 
 - Allowed hosts are only for other sites the recording opens as pages (a sign-in on a separate domain); the app's API, CDN and fonts no longer need listing. A failed sign-in or step names any host the app could not reach.
