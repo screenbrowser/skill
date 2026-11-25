@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.25 — 2026-11-25
+
+- Name records by what the page shows: a test id that contains a record's id works only if that record exists on the site being recorded, and `validate_guide` now warns about it.
+
 ## 1.3.24 — 2026-11-25
 
 - Guides can double-click (`Double-click "Q3 budget"`) and press and hold (`Press and hold the element with test id "seat-2" for 1 second`) for cells that open an editor and long-press menus.

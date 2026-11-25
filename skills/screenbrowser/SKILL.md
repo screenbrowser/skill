@@ -136,6 +136,10 @@ small. If a step creates data, name it so reruns do not collide, or delete it at
 - **Never use class names a build tool generated** (`css-1x9f2k`, `sc-bdVaJa`, `_1a2b3c`): they change
   with every deploy and `validate_guide` refuses them. Ids and `name=` attributes from the templates
   are fine when a step needs precision; the guide syntax shows how, but a good guide rarely needs it.
+- **Name records by what the page shows, not by their id.** A test id or selector that contains a
+  record's id (`button-edit-3f2a91c4-…`) works only if that exact record exists on the site being
+  recorded; data seeded in a local database usually does not. Write `Click "Edit" next to "Spring
+  promo"`, or check the id on that site first. `validate_guide` warns about these.
 - **Use what you have.** With the source code, read the templates for the real labels and names.
   With a browser tool, open the dev server and look at the page. With neither, write plain prose and
   let the run learn.
