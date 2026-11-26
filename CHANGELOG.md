@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.26 — 2026-11-26
+
+- A site behind the browser's own password box (common on staging sites) records with `SITE_USERNAME` and `SITE_PASSWORD` saved as project variables, with or without a sign-in; without them the run stops at once and says so.
+
 ## 1.3.25 — 2026-11-25
 
 - Name records by what the page shows: a test id that contains a record's id works only if that record exists on the site being recorded, and `validate_guide` now warns about it.

@@ -118,6 +118,11 @@ the field the user sees as the email or username field, `{PASSWORD}` into the pa
 sign-in button, then `Confirm` something only a signed-in user sees. If the page needs no sign-in,
 save an empty auth guide and set `login_success_text` to words the page shows.
 
+**A browser password box in front of the site** (HTTP basic auth, common on staging sites: the browser's
+own sign-in box appears before any page): save its user name and password as the variables
+`SITE_USERNAME` and `SITE_PASSWORD` with `put_variables`. The recorder answers the box for the site the
+guides open first; the guides do not mention them.
+
 **The main guide** covers the feature, in the words a colleague would use over the shoulder: 10–25 steps,
 one action per line, each naming the thing as it appears on screen — the button's text, the field's label,
 the menu item's words. Put a `[CAPTION "…"]` line before every action the viewer should hear about, in the
